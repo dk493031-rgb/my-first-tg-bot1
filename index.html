@@ -13,7 +13,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 16px;
-            padding-bottom: 80px; /* Отступ снизу под кнопку */
+            padding-bottom: 90px; /* Отступ снизу под кнопку */
         }
 
         h2 {
@@ -26,7 +26,7 @@
             padding-left: 8px;
         }
 
-        /* Сетка 3 на 3 (Автоматически переносится, если экран узкий) */
+        /* Сетка 3 на 3 */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -46,6 +46,8 @@
             text-align: center;
             transition: all 0.2s ease;
             position: relative;
+            cursor: pointer;
+            user-select: none;
         }
 
         /* Эффект при выборе товара */
@@ -88,7 +90,7 @@
             cursor: pointer;
         }
 
-        /* Кастомный чекбокс-невидимка поверх всей карточки для удобства клика */
+        /* Кастомный чекбокс */
         .checkbox-trigger {
             position: absolute;
             top: 8px;
@@ -97,6 +99,7 @@
             height: 16px;
             accent-color: #deff9a;
             cursor: pointer;
+            pointer-events: none; /* Чтобы клик проходил сквозь чекбокс на саму карточку */
         }
 
         /* Премиальная кнопка внизу экрана */
@@ -115,6 +118,7 @@
             box-shadow: 0 4px 20px rgba(222, 255, 154, 0.2);
             cursor: pointer;
             letter-spacing: 0.5px;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -127,21 +131,21 @@
             <div class="sticker">🍹</div>
             <div class="title">Лимонад</div>
             <div class="price">500 ₸</div>
-            <select onclick="event.stopPropagation()"><option>Клубничный</option><option>Апельсиновый</option><option>Мятный</option></select>
+            <select onclick="event.stopPropagation();"><option>Клубничный</option><option>Апельсиновый</option><option>Мятный</option></select>
         </div>
         <div class="card" onclick="toggleCard(this)">
             <input type="checkbox" class="checkbox-trigger" value="Мохито" data-price="600">
             <div class="sticker">🍸</div>
             <div class="title">Мохито</div>
             <div class="price">600 ₸</div>
-            <select onclick="event.stopPropagation()"><option>Классика</option><option>Клубника</option></select>
+            <select onclick="event.stopPropagation();"><option>Классика</option><option>Клубника</option></select>
         </div>
         <div class="card" onclick="toggleCard(this)">
             <input type="checkbox" class="checkbox-trigger" value="Кофе" data-price="700">
             <div class="sticker">☕</div>
             <div class="title">Кофе</div>
             <div class="price">700 ₸</div>
-            <select onclick="event.stopPropagation()"><option>Латте</option><option>Капучино</option></select>
+            <select onclick="event.stopPropagation();"><option>Латте</option><option>Капучино</option></select>
         </div>
     </div>
 
@@ -152,21 +156,21 @@
             <div class="sticker">🍜</div>
             <div class="title">Рамен</div>
             <div class="price">1500 ₸</div>
-            <select onclick="event.stopPropagation()"><option>С курицей</option><option>С говядиной</option></select>
+            <select onclick="event.stopPropagation();"><option>С курицей</option><option>С говядиной</option></select>
         </div>
         <div class="card" onclick="toggleCard(this)">
             <input type="checkbox" class="checkbox-trigger" value="Суп" data-price="1200">
             <div class="sticker">🍲</div>
             <div class="title">Том Ям</div>
             <div class="price">1200 ₸</div>
-            <select onclick="event.stopPropagation()"><option>С креветками</option><option>С курицей</option></select>
+            <select onclick="event.stopPropagation();"><option>С креветками</option><option>С курицей</option></select>
         </div>
         <div class="card" onclick="toggleCard(this)">
             <input type="checkbox" class="checkbox-trigger" value="Борщ" data-price="1000">
             <div class="sticker">🥣</div>
             <div class="title">Борщ</div>
             <div class="price">1000 ₸</div>
-            <select onclick="event.stopPropagation()"><option>Со сметаной</option><option>С зеленью</option></select>
+            <select onclick="event.stopPropagation();"><option>Со сметаной</option><option>С зеленью</option></select>
         </div>
     </div>
 
@@ -177,35 +181,35 @@
             <div class="sticker">🥩</div>
             <div class="title">Стейк</div>
             <div class="price">2500 ₸</div>
-            <select onclick="event.stopPropagation()"><option>Medium</option><option>Well-Done</option></select>
+            <select onclick="event.stopPropagation();"><option>Medium</option><option>Well-Done</option></select>
         </div>
         <div class="card" onclick="toggleCard(this)">
             <input type="checkbox" class="checkbox-trigger" value="Бургер" data-price="1800">
             <div class="sticker">🍔</div>
             <div class="title">Бургер</div>
             <div class="price">1800 ₸</div>
-            <select onclick="event.stopPropagation()"><option>Классик</option><option>Чизбургер</option></select>
+            <select onclick="event.stopPropagation();"><option>Классик</option><option>Чизбургер</option></select>
         </div>
         <div class="card" onclick="toggleCard(this)">
             <input type="checkbox" class="checkbox-trigger" value="Пицца" data-price="2200">
             <div class="sticker">🍕</div>
             <div class="title">Пицца</div>
             <div class="price">2200 ₸</div>
-            <select onclick="event.stopPropagation()"><option>Пепперони</option><option>Маргарита</option></select>
+            <select onclick="event.stopPropagation();"><option>Пепперони</option><option>Маргарита</option></select>
         </div>
     </div>
 
     <button class="footer-btn" onclick="sendOrder()">ЗАКАЗ ГОТОВ ✅</button>
 
     <script>
-        // Инициализируем Telegram Web App
         let tg = window.Telegram.WebApp;
-        tg.expand(); // Разворачиваем окно на максимум
+        tg.expand();
 
-        // Функция выделения карточки при клике
+        // Безопасное переключение состояния карточки
         function toggleCard(card) {
             const checkbox = card.querySelector('.checkbox-trigger');
             checkbox.checked = !checkbox.checked;
+            
             if (checkbox.checked) {
                 card.classList.add('selected');
             } else {
@@ -213,20 +217,22 @@
             }
         }
 
-        // Сборка заказа и отправка в бота
+        // Корректный сбор информации и отправка
         function sendOrder() {
             let orderItems = [];
             let totalSum = 0;
             
-            const checkboxes = document.querySelectorAll('.checkbox-trigger:checked');
+            const checkboxes = document.querySelectorAll('.checkbox-trigger');
             
             checkboxes.forEach(box => {
-                const card = box.parentElement;
-                const selectValue = card.querySelector('select').value;
-                const price = parseInt(box.getAttribute('data-price'));
-                
-                orderItems.push(`${box.value} [${selectValue}]`);
-                totalSum += price;
+                if (box.checked) {
+                    const card = box.parentElement;
+                    const selectValue = card.querySelector('select').value;
+                    const price = parseInt(box.getAttribute('data-price'));
+                    
+                    orderItems.push(`${box.value} (${selectValue})`);
+                    totalSum += price;
+                }
             });
 
             if (orderItems.length === 0) {
@@ -234,13 +240,12 @@
                 return;
             }
 
-            // Формируем объект данных
             const resultData = {
                 order: orderItems.join(", "),
                 total: totalSum
             };
 
-            // Отправляем данные обратно боту на Python
+            // Отправляем JSON боту
             tg.sendData(JSON.stringify(resultData));
         }
     </script>
